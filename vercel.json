@@ -15,7 +15,12 @@
     ],
     "routes": [
         {
-            "handle": "filesystem"
+            "src": "/build/(.*)",
+            "dest": "/build/$1"
+        },
+        {
+            "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico))$",
+            "dest": "/$1"
         },
         {
             "src": "/(.*)",
