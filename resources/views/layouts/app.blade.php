@@ -241,9 +241,9 @@
                         </svg>
                     </button>
                     <div id="sub-kesiswaan" class="hidden pl-6 pr-3 py-2 space-y-2 bg-surface-1/50 rounded-md mt-1">
-                        <a href="#" class="block text-sm text-ink-muted hover:text-primary">Ekstrakurikuler</a>
-                        <a href="#" class="block text-sm text-ink-muted hover:text-primary">Prestasi</a>
-                        <a href="#" class="block text-sm text-ink-muted hover:text-primary">Alumni</a>
+                        <a href="/kesiswaan/ekstrakurikuler" class="block text-sm text-ink-muted hover:text-primary">Ekstrakurikuler</a>
+                        <a href="/kesiswaan/prestasi" class="block text-sm text-ink-muted hover:text-primary">Prestasi</a>
+                        <a href="/kesiswaan/alumni" class="block text-sm text-ink-muted hover:text-primary">Alumni</a>
                     </div>
                 </div>
 
@@ -259,10 +259,10 @@
                         </svg>
                     </button>
                     <div id="sub-informasi" class="hidden pl-6 pr-3 py-2 space-y-2 bg-surface-1/50 rounded-md mt-1">
-                        <a href="#" class="block text-sm text-ink-muted hover:text-primary">Berita</a>
-                        <a href="#" class="block text-sm text-ink-muted hover:text-primary">Pengumuman</a>
-                        <a href="#" class="block text-sm text-ink-muted hover:text-primary">Agenda</a>
-                        <a href="#" class="block text-sm text-ink-muted hover:text-primary">Download</a>
+                        <a href="/informasi/berita" class="block text-sm text-ink-muted hover:text-primary">Berita</a>
+                        <a href="/informasi/pengumuman" class="block text-sm text-ink-muted hover:text-primary">Pengumuman</a>
+                        <a href="/informasi/agenda" class="block text-sm text-ink-muted hover:text-primary">Agenda</a>
+                        <a href="/informasi/download" class="block text-sm text-ink-muted hover:text-primary">Download</a>
                     </div>
                 </div>
 
