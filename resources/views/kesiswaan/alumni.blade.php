@@ -8,11 +8,11 @@
 
     <div class="mb-10 text-center md:text-left">
         <h2 class="text-2xl font-bold text-ink mb-2">Jejak Langkah Alumni</h2>
-        <p class="text-ink-muted">Kisah sukses dan inspirasi dari lulusan SMP Negeri 8 Padang yang kini telah berkiprah di
-            berbagai bidang.</p>
+        {{-- <p class="text-ink-muted">Kisah sukses dan inspirasi dari lulusan SMP Negeri 8 Padang yang kini telah berkiprah di
+            berbagai bidang.</p> --}}
     </div>
 
-    <!-- 1. Alumni Spotlight -->
+    {{-- <!-- 1. Alumni Spotlight -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
         <div class="bg-surface-1 border border-border rounded-xl p-6 shadow-sm relative overflow-hidden group">
             <div
@@ -93,7 +93,7 @@
                 class="swiper-button-prev !text-primary !w-10 !h-10 bg-canvas/80 rounded-full backdrop-blur-sm after:!text-lg ml-2">
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- 3. Pendataan Alumni (CTA Google Form) -->
     <div class="bg-ink rounded-xl border border-border p-8 text-center shadow-ghost-elevated relative overflow-hidden">
@@ -106,7 +106,7 @@
                 Kami sangat bangga dengan pencapaian para alumni. Bantu kami memperbarui pangkalan data ikatan alumni dengan
                 mengisi formulir singkat di bawah ini.
             </p>
-            <a href="https://forms.gle/contoh_link_form" target="_blank" rel="noopener noreferrer"
+            <a href="https://forms.gle/65dSMPGao9DgrDBaA" target="_blank" rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-md font-bold text-sm transition-colors shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">

@@ -28,7 +28,7 @@
                 </div>
                 <h4 class="font-bold text-ink mb-2">Alamat Lengkap</h4>
                 <p class="text-sm text-ink-muted leading-relaxed">Jl. Dr. Sutomo No.8, Kubu Marapalam, Kec. Padang Timur,
-                    Kota Padang, Sumatera Barat 25126</p>
+                    Kota Padang, Sumatera Barat 25125</p>
             </div>
 
             <!-- Card Telepon -->
@@ -42,9 +42,8 @@
                     </svg>
                 </div>
                 <h4 class="font-bold text-ink mb-2">Telepon</h4>
-                <p class="text-sm text-ink-muted mb-1">(0751) 123456</p>
-                <p class="text-xs text-ink-muted font-medium bg-surface-2 px-2 py-1 rounded">Senin - Jumat, 07:30 - 15:00
-                </p>
+                <p class="text-sm text-ink-muted mb-1">(0751)31764 </p>
+                <p class="text-sm text-ink-muted mb-1">(0751)811708</p>
             </div>
 
             <!-- Card Email -->
@@ -59,7 +58,8 @@
                 </div>
                 <h4 class="font-bold text-ink mb-2">Email</h4>
                 <a href="mailto:info@smpn8padang.sch.id"
-                    class="text-sm text-primary hover:text-primary-hover transition-colors font-medium">info@smpn8padang.sch.id</a>
+                    class="text-sm text-primary hover:text-primary-hover transition-colors font-medium">
+                    kepsek@smpn8-pdg.sch.id</a>
             </div>
 
         </div>

@@ -11,83 +11,78 @@
 
         <!-- Filter Tabs ala HP -->
         <div class="flex bg-surface-1 p-1 rounded-lg border border-border self-start">
-            <button class="px-4 py-1.5 bg-canvas shadow-sm rounded-md text-sm font-bold text-primary transition-all">Semua</button>
-            <button class="px-4 py-1.5 text-sm font-medium text-ink-muted hover:text-ink transition-all">Foto</button>
-            <button class="px-4 py-1.5 text-sm font-medium text-ink-muted hover:text-ink transition-all">Video</button>
+            <a href="{{ route('galeri.index') }}"
+                class="px-4 py-1.5 {{ !request('filter') ? 'bg-canvas shadow-sm text-primary' : 'text-ink-muted hover:text-ink' }} rounded-md text-sm font-bold transition-all">Semua</a>
+            <a href="{{ route('galeri.index', ['filter' => 'Foto']) }}"
+                class="px-4 py-1.5 {{ request('filter') == 'Foto' ? 'bg-canvas shadow-sm text-primary' : 'text-ink-muted hover:text-ink' }} rounded-md text-sm font-medium transition-all">Foto</a>
+            <a href="{{ route('galeri.index', ['filter' => 'Video']) }}"
+                class="px-4 py-1.5 {{ request('filter') == 'Video' ? 'bg-canvas shadow-sm text-primary' : 'text-ink-muted hover:text-ink' }} rounded-md text-sm font-medium transition-all">Video</a>
         </div>
     </div>
 
     <!-- Grid Galeri -->
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 md:gap-4">
+        @forelse ($galeris as $item)
+            @if ($item->tipe == 'Foto')
+                <!-- Item Foto -->
+                <a href="{{ asset('storage/' . $item->file_path) }}" target="_blank"
+                    class="aspect-square bg-surface-2 rounded-lg border border-border overflow-hidden relative group cursor-pointer shadow-sm">
+                    <img src="{{ asset('storage/' . $item->file_path) }}" alt="Galeri"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <!-- Efek Gelap saat Hover -->
+                    <div
+                        class="absolute inset-0 bg-ink/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                        </svg>
+                    </div>
+                </a>
+            @else
+                <!-- Item Video (YouTube) -->
+                @php
+                    // Ekstrak ID YouTube dari URL (Contoh URL: https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+                    preg_match(
+                        '/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i',
+                        $item->file_path,
+                        $match,
+                    );
+                    $youtube_id = $match[1] ?? null;
+                    $thumbnail_url = $youtube_id ? "https://img.youtube.com/vi/{$youtube_id}/maxresdefault.jpg" : '';
+                @endphp
 
-        <!-- Item Foto 1 -->
-        <a href="#" class="aspect-square bg-surface-2 rounded-lg border border-border overflow-hidden relative group cursor-pointer shadow-sm">
-            <div class="absolute inset-0 flex items-center justify-center text-xs text-ink-muted">Foto MPLS</div>
-            <div class="absolute inset-0 bg-ink/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span class="text-white text-xs font-bold text-center px-2 line-clamp-2">Kegiatan MPLS 2026</span>
+                <a href="{{ $item->file_path }}" target="_blank"
+                    class="aspect-square bg-surface-2 rounded-lg border border-border overflow-hidden relative group cursor-pointer shadow-sm">
+                    @if ($youtube_id)
+                        <img src="{{ $thumbnail_url }}" alt="Video" class="w-full h-full object-cover">
+                    @else
+                        <div class="absolute inset-0 flex items-center justify-center text-xs text-ink-muted bg-gray-900">
+                            Video</div>
+                    @endif
+
+                    <!-- Ikon Play Video -->
+                    <div
+                        class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors">
+                        <div
+                            class="w-12 h-12 bg-red-600/90 backdrop-blur-sm rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 ml-1" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                            </svg>
+                        </div>
+                    </div>
+                </a>
+            @endif
+        @empty
+            <div class="col-span-full py-16 text-center border border-dashed border-border rounded-xl bg-surface-1">
+                <p class="text-ink-muted text-sm">Belum ada dokumentasi media.</p>
             </div>
-        </a>
-
-        <!-- Item Foto 2 -->
-        <a href="#" class="aspect-square bg-surface-2 rounded-lg border border-border overflow-hidden relative group cursor-pointer shadow-sm">
-            <div class="absolute inset-0 flex items-center justify-center text-xs text-ink-muted">Foto Upacara</div>
-            <div class="absolute inset-0 bg-ink/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span class="text-white text-xs font-bold text-center px-2 line-clamp-2">Upacara Bendera Senen</span>
-            </div>
-        </a>
-
-        <!-- Item VIDEO 1 -->
-        <a href="#" class="aspect-square bg-surface-2 rounded-lg border border-border overflow-hidden relative group cursor-pointer shadow-sm col-span-2 row-span-2 md:col-span-1 md:row-span-1">
-            <div class="absolute inset-0 flex items-center justify-center text-xs text-ink-muted">Thumbnail Video Profil</div>
-            <!-- Ikon Play Video -->
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-            </div>
-            <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-1.5 py-0.5 rounded">03:45</div>
-        </a>
-
-        <!-- Item Foto 3 -->
-        <a href="#" class="aspect-square bg-surface-2 rounded-lg border border-border overflow-hidden relative group cursor-pointer shadow-sm">
-            <div class="absolute inset-0 flex items-center justify-center text-xs text-ink-muted">Foto Pramuka</div>
-            <div class="absolute inset-0 bg-ink/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span class="text-white text-xs font-bold text-center px-2 line-clamp-2">Persami 2026</span>
-            </div>
-        </a>
-
-        <!-- Item Foto 4 -->
-        <a href="#" class="aspect-square bg-surface-2 rounded-lg border border-border overflow-hidden relative group cursor-pointer shadow-sm">
-            <div class="absolute inset-0 flex items-center justify-center text-xs text-ink-muted">Foto Porseni</div>
-            <div class="absolute inset-0 bg-ink/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <span class="text-white text-xs font-bold text-center px-2 line-clamp-2">Porseni Antar Kelas</span>
-            </div>
-        </a>
-
-        <!-- Item Foto 5 -->
-        <a href="#" class="aspect-square bg-surface-2 rounded-lg border border-border overflow-hidden relative group cursor-pointer shadow-sm">
-            <div class="absolute inset-0 flex items-center justify-center text-xs text-ink-muted">Foto Guru</div>
-        </a>
-
-        <!-- Item VIDEO 2 -->
-        <a href="#" class="aspect-square bg-surface-2 rounded-lg border border-border overflow-hidden relative group cursor-pointer shadow-sm">
-            <div class="absolute inset-0 flex items-center justify-center text-xs text-ink-muted">Tari Pasambahan</div>
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-10 h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-            </div>
-            <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-1.5 py-0.5 rounded">05:12</div>
-        </a>
-
-        <!-- Item Foto 6 -->
-        <a href="#" class="aspect-square bg-surface-2 rounded-lg border border-border overflow-hidden relative group cursor-pointer shadow-sm">
-            <div class="absolute inset-0 flex items-center justify-center text-xs text-ink-muted">Foto Prestasi</div>
-        </a>
-
+        @endforelse
     </div>
 
-    <div class="mt-8 text-center">
-        <button class="px-6 py-2 bg-surface-1 border border-border text-ink hover:text-primary hover:border-primary rounded-lg text-sm font-medium transition-colors">Muat Lebih Banyak</button>
+    <!-- Pagination -->
+    <div class="mt-8 flex justify-center">
+        {{ $galeris->links('pagination::tailwind') }}
     </div>
 @endsection

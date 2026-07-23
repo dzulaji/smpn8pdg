@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMP Negeri 8 Padang | Smart and Good Attitude</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="{{ asset('images/logo.webp') }}">
+
+    <!-- Optional untuk Apple -->
+    <link rel="apple-touch-icon" href="{{ asset('images/logo.webp') }}">
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +26,7 @@
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-canvas/90 backdrop-blur-md border-b border-border transition-all duration-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-20 items-center"> <!-- Sedikit ditinggikan jadi h-20 biar lega -->
+            <div class="flex justify-between h-15 items-center">
 
                 <!-- Logo -->
                 <a href="/" class="flex-shrink-0 flex items-center gap-3 cursor-pointer">
@@ -40,18 +45,21 @@
                         class="text-ink font-medium hover:text-primary transition-colors duration-200 text-sm">Beranda</a>
 
                     <!-- Dropdown Profil -->
-                    <div class="relative group h-full">
+                    <div class="relative h-full desktop-dropdown">
                         <button
-                            class="flex items-center gap-1 text-ink-muted font-medium group-hover:text-primary transition-colors duration-200 py-8 text-sm">
+                            class="desktop-dropdown-toggle flex items-center gap-1 text-ink-muted font-medium hover:text-primary transition-colors duration-200 py-8 text-sm"
+                            aria-expanded="false" aria-haspopup="true">
                             Profil
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4 transition-transform duration-200 desktop-dropdown-icon" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
+
                         <div
-                            class="absolute top-full left-0 w-56 bg-canvas border border-border shadow-ghost-elevated rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 overflow-hidden">
+                            class="desktop-dropdown-menu absolute top-full -mt-3 left-0 w-56 bg-canvas border border-border shadow-ghost-elevated rounded-b-lg opacity-0 invisible translate-y-2 transition-all duration-200 overflow-hidden z-50">
                             <a href="/profil/sejarah"
                                 class="block px-4 py-3 text-sm text-ink hover:bg-surface-1 hover:text-primary border-b border-border/50">Sejarah</a>
                             <a href="/profil/visi-misi"
@@ -63,9 +71,9 @@
                             <a href="/profil/guru"
                                 class="block px-4 py-3 text-sm text-ink hover:bg-surface-1 hover:text-primary border-b border-border/50">Guru
                                 & Staff</a>
-                            <a href="/profil/struktur-organisasi"
+                            {{-- <a href="/profil/struktur-organisasi"
                                 class="block px-4 py-3 text-sm text-ink hover:bg-surface-1 hover:text-primary border-b border-border/50">Struktur
-                                Organisasi</a>
+                                Organisasi</a> --}}
                             <a href="/profil/fasilitas"
                                 class="block px-4 py-3 text-sm text-ink hover:bg-surface-1 hover:text-primary">Fasilitas</a>
                         </div>
@@ -98,18 +106,21 @@
                     </div> --}}
 
                     <!-- Dropdown Kesiswaan -->
-                    <div class="relative group h-full">
+                    <div class="relative h-full desktop-dropdown">
                         <button
-                            class="flex items-center gap-1 text-ink-muted font-medium group-hover:text-primary transition-colors duration-200 py-8 text-sm">
+                            class="desktop-dropdown-toggle flex items-center gap-1 text-ink-muted font-medium hover:text-primary transition-colors duration-200 py-8 text-sm"
+                            aria-expanded="false" aria-haspopup="true">
                             Kesiswaan
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4 transition-transform duration-200 desktop-dropdown-icon" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
+
                         <div
-                            class="absolute top-full left-0 w-48 bg-canvas border border-border shadow-ghost-elevated rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 overflow-hidden">
+                            class="desktop-dropdown-menu absolute top-full -mt-3 left-0 w-48 bg-canvas border border-border shadow-ghost-elevated rounded-b-lg opacity-0 invisible translate-y-2 transition-all duration-200 overflow-hidden z-50">
                             <a href="/kesiswaan/ekstrakurikuler"
                                 class="block px-4 py-3 text-sm text-ink hover:bg-surface-1 hover:text-primary border-b border-border/50">Ekstrakurikuler</a>
                             <a href="/kesiswaan/prestasi"
@@ -120,18 +131,21 @@
                     </div>
 
                     <!-- Dropdown Informasi -->
-                    <div class="relative group h-full">
+                    <div class="relative h-full desktop-dropdown">
                         <button
-                            class="flex items-center gap-1 text-ink-muted font-medium group-hover:text-primary transition-colors duration-200 py-8 text-sm">
+                            class="desktop-dropdown-toggle flex items-center gap-1 text-ink-muted font-medium hover:text-primary transition-colors duration-200 py-8 text-sm"
+                            aria-expanded="false" aria-haspopup="true">
                             Informasi
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-4 w-4 transition-transform duration-200 desktop-dropdown-icon" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
+
                         <div
-                            class="absolute top-full left-0 w-48 bg-canvas border border-border shadow-ghost-elevated rounded-b-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-2 group-hover:translate-y-0 overflow-hidden">
+                            class="desktop-dropdown-menu absolute top-full -mt-3 left-0 w-48 bg-canvas border border-border shadow-ghost-elevated rounded-b-lg opacity-0 invisible translate-y-2 transition-all duration-200 overflow-hidden z-50">
                             <a href="/informasi/berita"
                                 class="block px-4 py-3 text-sm text-ink hover:bg-surface-1 hover:text-primary border-b border-border/50">Berita</a>
                             <a href="/informasi/pengumuman"
@@ -178,7 +192,7 @@
 
         <!-- Mobile Menu Panel -->
         <div id="mobile-menu"
-            class="hidden md:hidden border-t border-border bg-canvas absolute w-full left-0 top-20 shadow-ghost-elevated pb-4 max-h-[80vh] overflow-y-auto">
+            class="hidden md:hidden border-t -mt-5 border-border bg-canvas absolute w-full left-0 top-20 shadow-ghost-elevated pb-4 max-h-[80vh] overflow-y-auto">
             <div class="px-4 pt-2 pb-3 space-y-1">
                 <a href="/"
                     class="block px-3 py-2 rounded-md text-base font-medium text-ink hover:text-primary hover:bg-surface-1">Beranda</a>
@@ -202,8 +216,8 @@
                             class="block text-sm text-ink-muted hover:text-primary">Kepala Sekolah & Jajarannya</a>
                         <a href="/profil/guru" class="block text-sm text-ink-muted hover:text-primary">Guru &
                             Staff</a>
-                        <a href="/profil/struktur-organisasi"
-                            class="block text-sm text-ink-muted hover:text-primary">Struktur Organisasi</a>
+                        {{-- <a href="/profil/struktur-organisasi"
+                            class="block text-sm text-ink-muted hover:text-primary">Struktur Organisasi</a> --}}
                         <a href="/profil/fasilitas"
                             class="block text-sm text-ink-muted hover:text-primary">Fasilitas</a>
                     </div>
@@ -241,8 +255,10 @@
                         </svg>
                     </button>
                     <div id="sub-kesiswaan" class="hidden pl-6 pr-3 py-2 space-y-2 bg-surface-1/50 rounded-md mt-1">
-                        <a href="/kesiswaan/ekstrakurikuler" class="block text-sm text-ink-muted hover:text-primary">Ekstrakurikuler</a>
-                        <a href="/kesiswaan/prestasi" class="block text-sm text-ink-muted hover:text-primary">Prestasi</a>
+                        <a href="/kesiswaan/ekstrakurikuler"
+                            class="block text-sm text-ink-muted hover:text-primary">Ekstrakurikuler</a>
+                        <a href="/kesiswaan/prestasi"
+                            class="block text-sm text-ink-muted hover:text-primary">Prestasi</a>
                         <a href="/kesiswaan/alumni" class="block text-sm text-ink-muted hover:text-primary">Alumni</a>
                     </div>
                 </div>
@@ -260,9 +276,11 @@
                     </button>
                     <div id="sub-informasi" class="hidden pl-6 pr-3 py-2 space-y-2 bg-surface-1/50 rounded-md mt-1">
                         <a href="/informasi/berita" class="block text-sm text-ink-muted hover:text-primary">Berita</a>
-                        <a href="/informasi/pengumuman" class="block text-sm text-ink-muted hover:text-primary">Pengumuman</a>
+                        <a href="/informasi/pengumuman"
+                            class="block text-sm text-ink-muted hover:text-primary">Pengumuman</a>
                         <a href="/informasi/agenda" class="block text-sm text-ink-muted hover:text-primary">Agenda</a>
-                        <a href="/informasi/download" class="block text-sm text-ink-muted hover:text-primary">Download</a>
+                        <a href="/informasi/download"
+                            class="block text-sm text-ink-muted hover:text-primary">Download</a>
                     </div>
                 </div>
 
@@ -320,10 +338,10 @@
                 <div>
                     <h4 class="text-white font-bold mb-4">Navigasi</h4>
                     <ul class="space-y-2 text-sm text-ink-muted">
-                        <li><a href="#" class="hover:text-primary transition-colors">Profil Sekolah</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Visi & Misi</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Data Guru & Staf</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Kalender Akademik</a></li>
+                        <li><a href="/profil/sejarah/" class="hover:text-primary transition-colors">Profil Sekolah</a></li>
+                        <li><a href="/profil/visi-misi/" class="hover:text-primary transition-colors">Visi & Misi</a></li>
+                        <li><a href="/profil/guru/" class="hover:text-primary transition-colors">Data Guru & Staf</a></li>
+                        <li><a href="/informasi/agenda/" class="hover:text-primary transition-colors">Agenda</a></li>
                     </ul>
                 </div>
                 <div>
@@ -345,13 +363,14 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
-                            <span>0751-31764</span>
+                            <span>(0751)31764 </br>
+                            (0751)811708 </span>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="pt-8 border-t border-gray-800 text-sm text-ink-muted text-center">
-                <p>&copy; {{ date('Y') }} SMP Negeri 8 Padang. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} SMP Negeri 8 Padang. Dikembangkan oleh <a href="https://instagram.com/dzulaji" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Dzul Fauzi, S. Kom</a>.</p>
             </div>
         </div>
     </footer>
@@ -383,6 +402,71 @@
             const subMenu = document.getElementById(id);
             subMenu.classList.toggle('hidden');
         }
+
+        // Desktop Dropdown Click Toggle
+        const desktopDropdowns = document.querySelectorAll('.desktop-dropdown');
+
+        function closeAllDesktopDropdowns() {
+            desktopDropdowns.forEach(dropdown => {
+                const menu = dropdown.querySelector('.desktop-dropdown-menu');
+                const button = dropdown.querySelector('.desktop-dropdown-toggle');
+                const icon = dropdown.querySelector('.desktop-dropdown-icon');
+
+                menu.classList.add('opacity-0', 'invisible', 'translate-y-2');
+                menu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+
+                button.setAttribute('aria-expanded', 'false');
+                button.classList.remove('text-primary');
+
+                icon.classList.remove('rotate-180');
+            });
+        }
+
+        desktopDropdowns.forEach(dropdown => {
+            const button = dropdown.querySelector('.desktop-dropdown-toggle');
+            const menu = dropdown.querySelector('.desktop-dropdown-menu');
+            const icon = dropdown.querySelector('.desktop-dropdown-icon');
+
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                const isOpen = button.getAttribute('aria-expanded') === 'true';
+
+                closeAllDesktopDropdowns();
+
+                if (!isOpen) {
+                    menu.classList.remove('opacity-0', 'invisible', 'translate-y-2');
+                    menu.classList.add('opacity-100', 'visible', 'translate-y-0');
+
+                    button.setAttribute('aria-expanded', 'true');
+                    button.classList.add('text-primary');
+
+                    icon.classList.add('rotate-180');
+                }
+            });
+
+            // Keyboard support
+            button.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    button.click();
+                }
+            });
+        });
+
+        // Klik di luar = tutup semua
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.desktop-dropdown')) {
+                closeAllDesktopDropdowns();
+            }
+        });
+
+        // ESC = tutup semua
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeAllDesktopDropdowns();
+            }
+        });
     </script>
 </body>
 
