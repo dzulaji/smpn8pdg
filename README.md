@@ -1,66 +1,61 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Portal Informasi & Manajemen SMP Negeri 8 Padang
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sebuah sistem informasi berbasis web yang dikembangkan untuk mengelola profil, kesiswaan, informasi, dan galeri di SMP Negeri 8 Padang. Aplikasi ini menyediakan antarmuka publik bagi siswa, orang tua, dan masyarakat umum, serta portal admin untuk pengelolaan konten secara dinamis.
 
-## About Laravel
+## 🎯 Tujuan Aplikasi
+Aplikasi ini bertujuan untuk:
+1. **Digitalisasi Informasi Sekolah**: Menyediakan sarana penyampaian informasi yang cepat, akurat, dan mudah diakses oleh publik (pengumuman, berita, agenda).
+2. **Branding dan Profil Sekolah**: Memperkenalkan visi-misi, sejarah, fasilitas, dan prestasi sekolah kepada masyarakat luas.
+3. **Kemudahan Akses Dokumen**: Memfasilitasi siswa dan guru dalam mendownload dokumen atau formulir penting melalui menu download.
+4. **Manajemen Data Terpadu**: Memberikan kemudahan bagi pihak sekolah (admin) untuk memperbarui konten website tanpa harus mengerti kode pemrograman (CMS).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🔄 Alur Bisnis (Business Flow)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Aplikasi ini dibagi menjadi dua bagian utama: **Portal Publik (Frontend)** dan **Portal Admin (Backend/CMS)**.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. Portal Publik (Pengunjung/User Umum)
+Pengunjung dapat mengakses berbagai informasi sekolah tanpa perlu login, dengan alur sebagai berikut:
+- **Beranda (Home)**: Menampilkan sorotan berita terbaru, guru, dan galeri terbaru.
+- **Profil Sekolah**: Pengunjung dapat melihat sejarah, visi-misi, profil kepala sekolah, daftar guru, struktur organisasi, dan detail fasilitas sekolah.
+- **Kesiswaan**: Pengunjung dapat menelusuri kegiatan ekstrakurikuler, daftar prestasi siswa, dan informasi alumni.
+- **Informasi**:
+  - **Berita & Pengumuman**: Membaca artikel atau informasi terbaru dari sekolah dengan fitur filter kategori.
+  - **Agenda**: Melihat jadwal kegiatan sekolah yang disajikan dalam bentuk kalender interaktif.
+  - **Download**: Mengunduh berbagai dokumen atau berkas penting publik.
+- **Galeri**: Melihat dokumentasi kegiatan sekolah dalam format foto dan video.
 
-## Learning Laravel
+### 2. Portal Admin (Manajemen Konten)
+Admin sekolah harus melakukan **Login** (otentikasi) melalui `/portal-admin` untuk dapat mengelola konten. Alur manajemennya:
+- **Dashboard**: Melihat ringkasan data (jumlah guru, berita, pengumuman, agenda, prestasi, dll).
+- **CRUD (Create, Read, Update, Delete)**:
+  - **Master Data**: Mengelola data Guru, Fasilitas, dan Ekstrakurikuler.
+  - **Konten Informasi**: Menulis dan menerbitkan Berita, Pengumuman, Agenda Kegiatan, dan Prestasi Siswa.
+  - **Media & Berkas**: Mengunggah foto/video ke Galeri dan mengelola file-file di menu Download.
+- Setiap perubahan yang dilakukan di Portal Admin akan langsung diperbarui (real-time) dan dapat dilihat di Portal Publik.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 💻 Teknologi yang Dipakai
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Proyek ini dibangun menggunakan tumpukan teknologi (Tech Stack) modern, yaitu:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Framework Backend**: [Laravel 12](https://laravel.com/) (PHP ^8.2) - Menangani logika server-side, routing, ORM (Eloquent), dan otentikasi.
+- **Frontend / Styling**: 
+  - [Tailwind CSS v4](https://tailwindcss.com/) - Utility-first CSS framework untuk mendesain antarmuka yang responsif dan modern.
+  - [Tailwind Typography](https://github.com/tailwindlabs/tailwindcss-typography) - Untuk memformat konten artikel (Rich Text).
+- **Asset Bundler**: [Vite](https://vitejs.dev/) - Untuk kompilasi aset (CSS/JS) dengan cepat dan efisien.
+- **Database**: MySQL / SQLite (menggunakan migrasi Laravel yang fleksibel).
+- **Package Manager**: Composer (PHP) dan NPM (Node.js).
 
-## Laravel Sponsors
+## 🚀 Pengembangan Kedepan (Future Possibilities)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Beberapa fitur yang memungkinkan untuk ditambahkan pada rilis berikutnya:
+1. **Sistem Penerimaan Peserta Didik Baru (PPDB) Online**: Modul khusus untuk pendaftaran, seleksi, dan pengumuman hasil seleksi siswa baru.
+2. **E-Learning / Portal Tugas**: Integrasi sistem manajemen pembelajaran ringan (LMS) di mana guru dapat mengunggah materi dan siswa dapat mengumpulkan tugas.
+3. **Sistem Informasi Akademik (SIAKAD) Mini**:
+   - Portal siswa/orang tua untuk melihat rapor digital dan absensi.
+   - Manajemen jadwal mata pelajaran kelas.
+4. **Multi-Role Authentication**: Membagi hak akses admin, misalnya: Admin Web, Admin Kesiswaan, dan Admin Kurikulum, agar pengelolaan lebih terstruktur.
+5. **Integrasi Notifikasi WhatsApp/Email**: Mengirim notifikasi otomatis ke siswa/guru ketika ada pengumuman mendesak atau perubahan jadwal.
+6. **Buku Tamu / Helpdesk Digital**: Fitur interaktif agar wali murid dapat mengirim pertanyaan atau masukan langsung ke pihak sekolah dan dilacak statusnya.
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+*Dibuat untuk memajukan pendidikan dan teknologi di SMP Negeri 8 Padang.*
